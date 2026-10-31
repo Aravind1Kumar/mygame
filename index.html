@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Super Ceiling Fan Bros - 1-1 Attic Breeze</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="arcade-cabinet">
+    <header class="hud">
+      <div class="hud-item">
+        <span class="hud-label">FAN BROS</span>
+        <span class="hud-val" id="hud-score">000000</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">WATTS</span>
+        <span class="hud-val" id="hud-watts">⚡x00</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">WORLD</span>
+        <span class="hud-val" id="hud-world">1 - 1</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">TIME</span>
+        <span class="hud-val" id="hud-time">300</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">LIVES</span>
+        <span class="hud-val" id="hud-lives">♥ x 3</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">BLADE SPEED</span>
+        <div class="rpm-meter">
+          <div class="rpm-fill" id="hud-rpm-fill"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="canvas-wrapper">
+      <canvas id="gameCanvas" width="960" height="540"></canvas>
+
+      <!-- Overlay screens -->
+      <div id="startScreen" class="overlay active">
+        <div class="dialog-box">
+          <h1 class="game-title">SUPER CEILING FAN BROS</h1>
+          <p class="subtitle">The Electric Platformer Adventure</p>
+          <div class="title-avatar">
+            <canvas id="previewCanvas" width="120" height="120"></canvas>
+          </div>
+          <p class="story-blurb">You are <strong>Sir Spins-a-Lot</strong>, the heroic ceiling fan who broke free to save the living room from the Dust Bunny Empire!</p>
+          <div class="controls-guide">
+            <div class="guide-row"><span>⬅️ ➡️ / A, D :</span><span>Roll & Glide</span></div>
+            <div class="guide-row"><span>⬆️ / W / SPACE :</span><span>Jump & Hold to FLUTTER HOVER</span></div>
+            <div class="guide-row"><span>⬇️ / S :</span><span>Down-Gust Ground Pound</span></div>
+            <div class="guide-row"><span>SHIFT / X :</span><span>Turbo RPM / Wind Gust</span></div>
+          </div>
+          <button id="startBtn" class="arcade-btn">PRESS START / CLICK TO PLAY</button>
+        </div>
+      </div>
+
+      <div id="gameOverScreen" class="overlay">
+        <div class="dialog-box">
+          <h1 class="game-title danger">GAME OVER</h1>
+          <p id="gameOverMsg">Out of motor voltage!</p>
+          <button id="restartBtn" class="arcade-btn">TRY AGAIN</button>
+        </div>
+      </div>
+
+      <div id="victoryScreen" class="overlay">
+        <div class="dialog-box victory">
+          <h1 class="game-title success">POWER RESTORED!</h1>
+          <p class="subtitle">Master Switch Engaged! Level 1-1 Cleared!</p>
+          <div class="victory-stats">
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Watts Collected: <span id="finalWatts">0</span></p>
+          </div>
+          <button id="playAgainBtn" class="arcade-btn">PLAY AGAIN</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile / On-screen Controls -->
+    <div class="mobile-controls">
+      <div class="dpad">
+        <button id="btnLeft" class="touch-btn">◀</button>
+        <button id="btnDown" class="touch-btn">▼</button>
+        <button id="btnRight" class="touch-btn">▶</button>
+      </div>
+      <div class="action-buttons">
+        <button id="btnTurbo" class="touch-btn action-b">TURBO<br><span>(Shift)</span></button>
+        <button id="btnJump" class="touch-btn action-a">HOVER<br><span>(Space)</span></button>
+      </div>
+    </div>
+
+    <footer class="footer-bar">
+      <span>Sound: <button id="soundToggle" class="sound-toggle-btn">🔊 ON</button></span>
+      <span class="tip">💡 TIP: Hold JUMP while falling to engage your blades and flutter hover over wide pits!</span>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/audio.js"></script>
+  <script src="js/sprites.js"></script>
+  <script src="js/physics.js"></script>
+  <script src="js/level.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
